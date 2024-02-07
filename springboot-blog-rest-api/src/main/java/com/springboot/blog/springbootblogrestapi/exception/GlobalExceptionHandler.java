@@ -59,18 +59,18 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	}
 
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Object> hnadledMethodArgumentNotValidException(MethodArgumentNotValidException exception,
-			WebRequest webRequest) {
-
-		Map<String, String> errors = new HashMap<>();
-		exception.getBindingResult().getAllErrors().forEach((error) -> {
-			String fieldNmae = ((FieldError) error).getField();
-			String message = error.getDefaultMessage();
-			errors.put(fieldNmae, message);
-		});
-
-		return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+//	@ExceptionHandler(MethodArgumentNotValidException.class)
+//	public ResponseEntity<Object> hnadledMethodArgumentNotValidException(MethodArgumentNotValidException exception,
+//			WebRequest webRequest) {
+//
+//		Map<String, String> errors = new HashMap<>();
+//		exception.getBindingResult().getAllErrors().forEach((error) -> {
+//			String fieldNmae = ((FieldError) error).getField();
+//			String message = error.getDefaultMessage();
+//			errors.put(fieldNmae, message);
+//		});
+//
+//		return new ResponseEntity<>(errors, HttpStatus.INTERNAL_SERVER_ERROR);
+//	}
 
 }
